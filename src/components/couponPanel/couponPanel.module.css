@@ -1,0 +1,83 @@
+.container {
+  width: 100%;
+  height: 162px;
+  position: relative;
+}
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  padding: 0 26px;
+  gap: 20px;
+}
+
+.moneyWrapper {
+  max-width: 160px;
+  margin-right: 32px;
+  font-size: 68px;
+  line-height: 80px;
+  color: #a45927;
+  position: relative;
+}
+
+.moneyWrapper::after {
+  content: "元";
+  position: absolute;
+  bottom: 0;
+  right: -28px;
+  font-size: 28px;
+  line-height: 60px;
+}
+
+.descWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffe9b0;
+  height: 100%;
+  padding: 24px 0;
+  min-width: 320px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.descTitle {
+  font-size: 36px;
+  line-height: 36px;
+}
+
+.descInfo {
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.statusWrapper {
+  color: #a45927;
+  background: linear-gradient(to right, #ffe2ba, #fed88b);
+  font-size: 36px;
+  line-height: 40px;
+  padding: 12px 18px;
+  border-radius: 32px;
+  max-width: 160px;
+  text-align: center;
+}

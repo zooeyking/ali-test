@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  color: #ffe9b0;
+  font-size: 22px;
+  line-height: 28px;
+  margin-right: 10px;
+}
+
+.timeWrapper {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+}
+
+.timeWrapper li {
+  background: linear-gradient(#ffe9b0, #fff1ce);
+  width: 32px;
+  height: 32px;
+  font-size: 22px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 4px;
+  color: #ff4000;
+  position: relative;
+}
+
+.timeWrapper li::after {
+  position: absolute;
+  top: 0;
+  right: -9px;
+  content: ":";
+  height: 32px;
+  line-height: 32px;
+  color: #ffe9b0;
+  font-size: 22px;
+}
+
+.timeWrapper li:last-child::after {
+  content: "";
+}
