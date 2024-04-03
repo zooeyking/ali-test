@@ -13,15 +13,34 @@ const CountDown: React.FC<PropsType> = (props) => {
   const [counter, setCounter] = useState(restTime);
 
   useEffect(() => {
+    let lastTime = Date.now();
+    let offset = 1000;
     const callBack = () => {
-      setCounter((counter) => counter - 1);
+      const newTime = Date.now();
+      // 计算此次需要减少的count 一般情况下是1 或者 0 阻塞非常严重时可能出现 2 3 4的情况
+      const subNum = Math.max(Math.floor((newTime - lastTime) / 1000), 1);
+      // 计算下次timeout 需要减去偏移量
+      offset = (subNum + 1) * 1000 - (newTime - lastTime);
+      // console.log({
+      //   offset,
+      //   subNum,
+      //   newTime,
+      //   lastTime,
+      //   offsetTime: newTime - lastTime,
+      // });
+      setCounter((counter) => {
+        // 更新此次执行时间的时间戳
+        lastTime = newTime;
+        return counter - subNum;
+      });
+
       if (timer) {
         clearTimeout(timer);
       }
-      timer = setTimeout(callBack, 1000);
+      timer = setTimeout(callBack, offset);
     };
 
-    let timer = setTimeout(callBack, 1000);
+    let timer = setTimeout(callBack, offset);
 
     return () => {
       timer && clearTimeout(timer);
