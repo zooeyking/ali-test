@@ -17,7 +17,7 @@ const CountDown: React.FC<PropsType> = (props) => {
     let offset = 1000;
     const callBack = () => {
       const newTime = Date.now();
-      // 计算此次需要减少的count 一般情况下是1 或者 0 阻塞非常严重时可能出现 2 3 4的情况
+      // 计算此次需要减少的count 一般情况下是1 阻塞非常严重时可能出现 2 3 4的情况
       const subNum = Math.max(Math.floor((newTime - lastTime) / 1000), 1);
       // 计算下次timeout 需要减去偏移量
       offset = (subNum + 1) * 1000 - (newTime - lastTime);
